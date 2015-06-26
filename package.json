@@ -1,0 +1,25 @@
+{
+  "name": "fiddle-grabber",
+  "version": "0.0.1",
+  "description": "This program can be used to download a list of jsfiddle.net links as separate HTML, CSS, JS file.",
+  "main": "fetch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sguha-work/fiddle-grabber.git"
+  },
+  "keywords": [
+    "fiddle",
+    "jsfiddle",
+    "grabber",
+    "crawler"
+  ],
+  "author": "Sahasrangshu Guha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sguha-work/fiddle-grabber/issues"
+  },
+  "homepage": "https://github.com/sguha-work/fiddle-grabber"
+}
