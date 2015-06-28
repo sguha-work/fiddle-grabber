@@ -1,5 +1,6 @@
 // to run this code use phantomjs fetchData.js
 var counter=-1;
+console.log(11);
 var url = [];
 var startRender;
 var page;
@@ -9,7 +10,7 @@ var newFiddleObjects = [];
 var  fiddleFetch = {};
 
 (function() {
-	var indexOfCsvFile = 2;
+	var indexOfCsvFile = 2;console.log("hello");
 	process.argv.forEach(function (val, index, array) {
 	  if(index == 2) {
 	  	fiddleFetch.csvFileName = val;
