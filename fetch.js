@@ -1,6 +1,5 @@
 // to run this code use phantomjs fetchData.js
 var counter=-1;
-console.log(11);
 var url = [];
 var startRender;
 var page;
@@ -8,6 +7,27 @@ var rootDirectoryName = "fiddles";
 var newFiddleObjects = [];
 
 var  fiddleFetch = {};
+fiddleFetch.url = [];
+
+var getURLArrayFromCSV = (function() {
+	var csvArray = require('csv-array');
+	csv.parseCSV("test.csv", function(data){
+		for(var index = 0; index<data.length; index++) {
+			var tempObject = {};
+			if(typeof data[index].url != "undefined" && data[index].url.trim() != "") {
+				tempObject.url = data[index].url.trim();
+				if(typeof data[index].title == "undefined" || data[index].title.trim()=="") {
+					tempObject.title = "Untitled_" + index;
+				} else {
+					tempObject.title = data[index].title;
+				}
+				fiddleFetch.url.push(tempObject);
+			} else {
+				continue;
+			}
+		}
+	}, true);
+});
 
 (function() {
 	var indexOfCsvFile = 2;console.log("hello");
@@ -20,7 +40,7 @@ var  fiddleFetch = {};
 
 (function() {
 	if(typeof fiddleFetch.csvFileName != "undefined" && fiddleFetch.csvFileName.trim() != "") {
-
+		getURLArrayFromCSV();
 	} else {
 		console.log("CSV file name not provided");
 		phantom.exit();
