@@ -9,9 +9,10 @@ var newFiddleObjects = [];
 var  fiddleFetch = {};
 fiddleFetch.url = [];
 
+// parse the csv to get the url array
 var getURLArrayFromCSV = (function() {
 	var csvArray = require('csv-array');
-	csv.parseCSV("test.csv", function(data){
+	csv.parseCSV(fiddleFetch.csvFileName, function(data){
 		for(var index = 0; index<data.length; index++) {
 			var tempObject = {};
 			if(typeof data[index].url != "undefined" && data[index].url.trim() != "") {
@@ -26,9 +27,11 @@ var getURLArrayFromCSV = (function() {
 				continue;
 			}
 		}
+		
 	}, true);
 });
 
+// set the csv file name
 (function() {
 	var indexOfCsvFile = 2;console.log("hello");
 	process.argv.forEach(function (val, index, array) {
@@ -38,6 +41,7 @@ var getURLArrayFromCSV = (function() {
 	});
 })();
 
+// if csv file name not provided exiting the program
 (function() {
 	if(typeof fiddleFetch.csvFileName != "undefined" && fiddleFetch.csvFileName.trim() != "") {
 		getURLArrayFromCSV();
@@ -45,14 +49,6 @@ var getURLArrayFromCSV = (function() {
 		console.log("CSV file name not provided");
 		phantom.exit();
 	}
-})();
-
-(function() {
-	var fs = require('fs');
-	var csvFileName = getCSVFileNameFromArgument();
-	var categoryData = fiddleDataFileContent.ChildCategoryData;
-	fs.makeDirectory(rootDirectoryName);
-	url = fiddleDataFileContent.FiddlesData;
 })();
 
 page = require('webpage').create();
