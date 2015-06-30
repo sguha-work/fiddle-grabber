@@ -11,7 +11,7 @@ fiddleFetch.url = [];
 
 
 var startRenderInterval = (function() {
-	setInterval(function(){
+	setInterval(function(){console.log("xxxxxxxxx");
 		startRender();	
 	},60000)
 });
@@ -19,7 +19,7 @@ var startRenderInterval = (function() {
 // parse the csv to get the url array
 var getURLArrayFromCSV = (function() {
 	var csvArray = require('csv-array');
-	csv.parseCSV(fiddleFetch.csvFileName, function(data){
+	csvArray.parseCSV(fiddleFetch.csvFileName, function(data){
 		for(var index = 0; index<data.length; index++) {
 			var tempObject = {};
 			if(typeof data[index].url != "undefined" && data[index].url.trim() != "") {
