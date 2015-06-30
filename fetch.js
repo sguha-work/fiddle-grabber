@@ -9,6 +9,13 @@ var newFiddleObjects = [];
 var  fiddleFetch = {};
 fiddleFetch.url = [];
 
+
+var startRenderInterval = (function() {
+	setInterval(function(){
+		startRender();	
+	},60000)
+});
+
 // parse the csv to get the url array
 var getURLArrayFromCSV = (function() {
 	var csvArray = require('csv-array');
@@ -27,18 +34,15 @@ var getURLArrayFromCSV = (function() {
 				continue;
 			}
 		}
-		
+		console.log(JSON.stringify(fiddleFetch.url));
 	}, true);
 });
 
 // set the csv file name
-(function() {
-	var indexOfCsvFile = 2;console.log("hello");
-	process.argv.forEach(function (val, index, array) {
-	  if(index == 2) {
-	  	fiddleFetch.csvFileName = val;
-	  }
-	});
+(function(process) {
+	var indexOfCsvFile = 1;
+	var system = require('system');
+	fiddleFetch.csvFileName = system.args[indexOfCsvFile];
 })();
 
 // if csv file name not provided exiting the program
@@ -154,6 +158,4 @@ var createLocalFiles = (function() {console.log("****** "+counter+" *****");
 });
 
 
-setInterval(function(){
-	startRender();	
-},60000);
+
