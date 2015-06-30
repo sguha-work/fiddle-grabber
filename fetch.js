@@ -11,31 +11,31 @@ fiddleFetch.url = [];
 
 
 var startRenderInterval = (function() {
-	setInterval(function(){console.log("xxxxxxxxx");
+	setInterval(function(){
 		startRender();	
 	},60000)
 });
 
 // parse the csv to get the url array
-var getURLArrayFromCSV = (function() {
-	var csvArray = require('csv-array');
-	csvArray.parseCSV(fiddleFetch.csvFileName, function(data){
-		for(var index = 0; index<data.length; index++) {
+var getURLArrayFromCSV = (function(fileContent) {
+	var fileContentArray = fileContent.split("\n");
+	for(var index = 1; index < fileContentArray.length; index++) {
+		var lineArray = fileContentArray[index].split(",");
+		if(typeof lineArray[0]!="undefined" && lineArray[0].trim().length != 0) {
 			var tempObject = {};
-			if(typeof data[index].url != "undefined" && data[index].url.trim() != "") {
-				tempObject.url = data[index].url.trim();
-				if(typeof data[index].title == "undefined" || data[index].title.trim()=="") {
-					tempObject.title = "Untitled_" + index;
-				} else {
-					tempObject.title = data[index].title;
-				}
-				fiddleFetch.url.push(tempObject);
+			tempObject.url = lineArray[0];
+			if(typeof lineArray[1]!="undefined" && lineArray[1].trim().length == 0) {
+				tempObject.title = lineArray[1];
 			} else {
-				continue;
+				tempObject.title = "untitled" + index;
 			}
-		}
-		console.log(JSON.stringify(fiddleFetch.url));
-	}, true);
+			fiddleFetch.url.push(tempObject);
+		} else {
+			continue;
+		}		
+	}	
+	console.log(JSON.stringify(fiddleFetch.url));
+	phantom.exit();
 });
 
 // set the csv file name
@@ -48,7 +48,14 @@ var getURLArrayFromCSV = (function() {
 // if csv file name not provided exiting the program
 (function() {
 	if(typeof fiddleFetch.csvFileName != "undefined" && fiddleFetch.csvFileName.trim() != "") {
-		getURLArrayFromCSV();
+		var fs = require('fs');
+		var fileContent = fs.read(fiddleFetch.csvFileName);
+		if(typeof fileContent == "undefined" || fileContent.trim().length == 0) {
+			console.log("Invalid file content.");
+			phantom.exit();
+		} else {
+			getURLArrayFromCSV(fileContent);
+		}	
 	} else {
 		console.log("CSV file name not provided");
 		phantom.exit();

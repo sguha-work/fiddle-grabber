@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/sguha-work/fiddle-grabber",
   "dependencies": {
-    "csv-array": "0.0.2",
     "fs": "0.0.2",
     "phantomjs": "^1.9.17"
   }
