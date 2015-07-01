@@ -10,7 +10,6 @@ fiddleFetch.url = [];
 page = require('webpage').create();
 
 var createLocalFiles = (function(urlObject) {
-    console.log("hello " + JSON.stringify(urlObject));
     console.log("****** Start creating local files ******");
     var fs = require('fs');
     page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function() {
