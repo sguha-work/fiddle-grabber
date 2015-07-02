@@ -66,7 +66,7 @@ http://jsfiddle.net/zxcd/kjlg/1/,
 ```
 	phantomjs node_modules/fiddle-grabber.js test.csv	    
 ```
-	When the program is running you may see a screen like following which will show the progress
+When the program is running you may see a screen like following which will show the progress
 	![Image of Yaktocat](http://i.imgur.com/f9PzfJz.png)
 
 ##If any issue found feel free to drop a mail at sguha1988.life@gmail.com
