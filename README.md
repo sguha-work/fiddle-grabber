@@ -69,7 +69,7 @@ Follwoing example is shown based on a sample csv file which holds above 3 sample
 When the program is running you may see a screen like following which will show the progress
 	![Image of Yaktocat](http://i.imgur.com/f9PzfJz.png)
 
-The script took 15-20 sec to crawl every link. And here is the output.
+The script takes 15-20 seconds to crawl every link. And here is the output.
 
 ```
 			fiddles
