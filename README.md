@@ -19,7 +19,11 @@ After installing the package you have to use it as follows. See the next section
 ```	
 phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
 ```
+
+### The output
+
 The output of above command will be something like this
+
 ```
 			fiddles
 			  |_<website>
@@ -31,6 +35,7 @@ The output of above command will be something like this
 			  	  |_demo.details
 			  	  |_url.txt
 ```			  	  
+
 #### Description of the created files and folders
 ```
 fiddles - The root folder holding all the sub folders
@@ -56,6 +61,13 @@ http://jsfiddle.net/zxcd/kjlg/1/,
  From 2nd row the URL field is mandatory you may provide the title or not. This title will be used as the folder name holding the crawled files inside "fiddles" folder. If title not provided then "untitled<indec>"
  will be the folder name. If the URL doesnot contain a valid link then the url will be ignored.
 
+### Example
+    Follwoing example is shown based on a sample csv file which holds above 3 sample fiddle links.
+```
+	phantomjs node_modules/fiddle-grabber.js test.csv	    
+```
+	When the program is running you may see a screen like following which will show the progress
+	![Image of Yaktocat](http://i.imgur.com/f9PzfJz.png)
 
 ##If any issue found feel free to drop a mail at sguha1988.life@gmail.com
 
