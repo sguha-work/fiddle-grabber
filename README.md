@@ -20,16 +20,16 @@ After installing the package you have to use it as follows. See the next section
 phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
 ```
 The output of above command will be something like this
-	node_modules
-	|_fiddles
-	  |_<website>
-	  	|_<website>.html
-	  	|_files
-	  	  |_demo.html
-	  	  |_demo.js
-	  	  |_demo.css
-	  	  |_demo.details
-	  	  |_url.txt
+			node_modules
+			|_fiddles
+			  |_<website>
+			  	|_<website>.html
+			  	|_files
+			  	  |_demo.html
+			  	  |_demo.js
+			  	  |_demo.css
+			  	  |_demo.details
+			  	  |_url.txt
 #### Description of the created files and folders
 fiddles - The root folder holding all the sub folders
 <website> - top most folder of each link crawled
