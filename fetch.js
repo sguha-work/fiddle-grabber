@@ -12,7 +12,7 @@ page = require('webpage').create();
 var createLocalFiles = (function(urlObject) {
     console.log("****** Start creating local files ******");
     var fs = require('fs');
-    page.includeJs('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function() {
+    if (page.injectJs("jquery.js")) {
         var value = page.evaluate(function() {
             var html = $('#id_code_html').text();
             var js = $('#id_code_js').text();
@@ -34,7 +34,7 @@ var createLocalFiles = (function(urlObject) {
             };
 
         });
-        page.onConsoleMessage = (function (msg) {}); // ignoring all console log of the site
+        page.onConsoleMessage = (function(msg) {}); // ignoring all console log of the site
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title);
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title + "/" + "files");
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
@@ -49,7 +49,7 @@ var createLocalFiles = (function(urlObject) {
         detailsContent += '...';
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.details", detailsContent, 'w');
         console.log("****** File write done ******");
-    });
+    }
 
 });
 
@@ -59,12 +59,14 @@ var startRender = (function() {
         phantom.exit();
     }
 
-    
+
     console.log("****** " + (counter + 1) + " Openning link " + fiddleFetch.url[counter].url + " *****");
     page.open(fiddleFetch.url[counter].url, function(status) {
+        console.log(counter);
         if (status == 'success') {
             createLocalFiles(fiddleFetch.url[counter]);
         } else {
+            counter -= 1;
             console.log("****** Link cannot be opened may be broken or slow internet connectivity, will retry now ******");
         }
     });
@@ -85,10 +87,10 @@ var startRenderInterval = (function() {
 })();
 
 var isValidFiddleLink = (function(url) {
-	if(url.indexOf("//jsfiddle.net/") == -1) {
-		return false;
-	}
-	return true;
+    if (url.indexOf("//jsfiddle.net/") == -1) {
+        return false;
+    }
+    return true;
 });
 
 // parse the csv to get the url array
