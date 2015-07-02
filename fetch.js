@@ -4,10 +4,14 @@ var url = [];
 var page;
 var rootDirectoryName = "fiddles";
 var newFiddleObjects = [];
-
 var fiddleFetch = {};
 fiddleFetch.url = [];
+
 page = require('webpage').create();
+
+page.onConsoleMessage = (function(msg) {
+    return false;
+}); // ignoring all console log of the site
 
 var createLocalFiles = (function(urlObject) {
     console.log("****** Start creating local files ******");
@@ -34,7 +38,6 @@ var createLocalFiles = (function(urlObject) {
             };
 
         });
-        page.onConsoleMessage = (function(msg) {return false;}); // ignoring all console log of the site
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title);
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title + "/" + "files");
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
@@ -51,18 +54,18 @@ var createLocalFiles = (function(urlObject) {
 
         //creating full page
         var totalHTMLContent = '<!DOCTYPE HTML><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><meta http-equiv="edit-Type" edit="text/html; charset=utf-8" />';
-        
+
         // adding the title
-        totalHTMLContent += '<title>'+value.options.title+'</title>';
+        totalHTMLContent += '<title>' + value.options.title + '</title>';
 
         //adding css
-        totalHTMLContent += "<style>"+value.css+"</style>";
+        totalHTMLContent += "<style>" + value.css + "</style>";
         // adding the external resources
         for (var index in value.resources) {
-            if((value.resources[index].split(".").pop()).toLowerCase() == "js") {
-            	totalHTMLContent += '<script type="text/javascript" src="'+value.resources[index]+'"></script>';
+            if ((value.resources[index].split(".").pop()).toLowerCase() == "js") {
+                totalHTMLContent += '<script type="text/javascript" src="' + value.resources[index] + '"></script>';
             } else {
-            	totalHTMLContent +='<link rel="stylesheet" type="text/css" href="'+value.resources[index]+'"></link>';
+                totalHTMLContent += '<link rel="stylesheet" type="text/css" href="' + value.resources[index] + '"></link>';
             }
         }
         // closing header and starting the body
@@ -70,11 +73,11 @@ var createLocalFiles = (function(urlObject) {
         //adding the html
         totalHTMLContent += value.html;
         //adding the javascript
-        totalHTMLContent += '<script type="text/javascript">'+value.js+'</script>';
+        totalHTMLContent += '<script type="text/javascript">' + value.js + '</script>';
         //ending page
         totalHTMLContent += '</body></html>';
 
-		fs.write(rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title +".html", totalHTMLContent, 'w');        
+        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title + ".html", totalHTMLContent, 'w');
 
         console.log("****** File write done ******");
     }
@@ -83,11 +86,9 @@ var createLocalFiles = (function(urlObject) {
 
 var startRender = (function() {
     counter += 1;
-    if (counter >= fiddleFetch.url.length) {
+    if (counter > fiddleFetch.url.length) {
         phantom.exit();
     }
-
-
     console.log("****** " + (counter + 1) + " Openning link " + fiddleFetch.url[counter].url + " *****");
     page.open(fiddleFetch.url[counter].url, function(status) {
         if (status == 'success') {
