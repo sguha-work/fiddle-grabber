@@ -40,10 +40,10 @@ The output of above command will be something like this
 ```
 fiddles - The root folder holding all the sub folders
 <website> - top most folder of each link crawled
-<website>.html - A complete ready to run html file holding all of the coding,If ajax call is there then may not work if not executed from any host
+<website>.html - A complete ready to run html file holding all of the coding,If Ajax call is there then may not work if not executed from any host
 files - This folder holds the piece of files
 demo.html - The html script of the fiddle
-demo.js - The javascript coding of the fiddle
+demo.js - The JavaScript coding of the fiddle
 demo.css - The styles of the fiddle
 demo.details - Holds title, description, external resources of the fiddle
 url.txt - The URL of the fiddle
@@ -52,17 +52,17 @@ url.txt - The URL of the fiddle
 	
 	A sample csv data is here
 ```
-url,title
-http://jsfiddle.net/abcd/wxyz/1/,
-http://jsfiddle.net/vbfg/qwqs/2/,
-http://jsfiddle.net/zxcd/kjlg/1/,
+URL,title
+Http://jsfiddle.net/abcd/wxyz/1/,
+Http://jsfiddle.net/vbfg/qwqs/2/,
+Http://jsfiddle.net/zxcd/kjlg/1/,
 ```	
- Mind that the first row should always hold "url" on first coloumn and "title" on second coloumn.
- From 2nd row the URL field is mandatory you may provide the title or not. This title will be used as the folder name holding the crawled files inside "fiddles" folder. If title not provided then "untitled<indec>"
- will be the folder name. If the URL doesnot contain a valid link then the url will be ignored.
+ Mind that the first row should always hold "URL" on first column and "title" on second column.
+ From 2nd row the URL field is mandatory you may provide the title or not. This title will be used as the folder name holding the crawled files inside "fiddles" folder. If title not provided then "untitled<index>"
+ will be the folder name. If the URL doesn't contain a valid link then the URL will be ignored.
 
 ### Example
-Follwoing example is shown based on a sample csv file which holds above 3 sample fiddle links.
+Following example is shown based on a sample csv file which holds above 3 sample fiddle links.
 ```
 	phantomjs node_modules/fiddle-grabber.js test.csv	    
 ```
@@ -94,10 +94,10 @@ The script took 15-20 sec to crawl every link. And here is the output.
 			  :	  			  
 			  	  
 ```
-### Most prominant issue
+### Most prominent issue
 
 ```
- Still now the program can't crawl the libraries on which the jsfiddle is dependant.
+ Still now the program can't crawl the libraries on which the jsfiddle is dependent.
  If you fiddle got dependencies on jquery for say then that info will not be crawled.
  The standalone HTML file also will not hold the library info. 
  If the libraries are added as external resources in the fiddle then that will be
@@ -105,4 +105,3 @@ The script took 15-20 sec to crawl every link. And here is the output.
 ```
 
 ##If any issue found feel free to drop a mail at sguha1988.life@gmail.com
-
