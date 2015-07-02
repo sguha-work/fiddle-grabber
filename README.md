@@ -21,15 +21,25 @@ phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
 ```
 The output of above command will be something like this
 	node_modules
-	|_fiddles [The root folder holding all the sub folders]
-	  |_<website> [top most folder of each link crawled]
-	  	|_<website>.html [A complete ready to run html file holding all of the coding,If ajax call is there then may not work if not executed from any host]
-	  	|_files [holds the piece of files]
-	  	  |_demo.html [The html script of the fiddle]
-	  	  |_demo.js [The javascript coding of the fiddle]
-	  	  |_demo.css [The styles of the fiddle]
-	  	  |_demo.details [Holds title, description, external resources of the fiddle]
-	  	  |_url.txt [The URL of the fiddle]
+	|_fiddles
+	  |_<website>
+	  	|_<website>.html
+	  	|_files
+	  	  |_demo.html
+	  	  |_demo.js
+	  	  |_demo.css
+	  	  |_demo.details
+	  	  |_url.txt
+#### Description of the created files and folders
+fiddles - The root folder holding all the sub folders
+<website> - top most folder of each link crawled
+<website>.html - A complete ready to run html file holding all of the coding,If ajax call is there then may not work if not executed from any host
+files - This folder holds the piece of files
+demo.html - The html script of the fiddle
+demo.js - The javascript coding of the fiddle
+demo.css - The styles of the fiddle
+demo.details - Holds title, description, external resources of the fiddle
+url.txt - The URL of the fiddle
 
 ### Preparing the csv file holding the jsfiddle.net links
 	
