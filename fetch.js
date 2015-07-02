@@ -9,10 +9,16 @@ fiddleFetch.url = [];
 
 page = require('webpage').create();
 
+// ignoring all console log of the site
 page.onConsoleMessage = (function(msg) {
-    return false;
-}); // ignoring all console log of the site
+    console.log("");
+});
 
+// ignoring all console log of the site
+page.onError = (function(msg) {
+    console.log("Javascript error on page");
+}); 
+ 
 var createLocalFiles = (function(urlObject) {
     console.log("****** Start creating local files ******");
     var fs = require('fs');
@@ -86,7 +92,7 @@ var createLocalFiles = (function(urlObject) {
 
 var startRender = (function() {
     counter += 1;
-    if (counter > fiddleFetch.url.length) {
+    if (counter >= fiddleFetch.url.length) {
         phantom.exit();
     }
     console.log("****** " + (counter + 1) + " Openning link " + fiddleFetch.url[counter].url + " *****");
