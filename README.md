@@ -13,7 +13,7 @@ The installation is just a command
  npm install fiddle-grabber
 ```
 
-After installing the package you can use it from console as follows
+After installing the package you have to use it as follows. See the next sections.
 ```
  phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
    
@@ -22,7 +22,7 @@ After installing the package you can use it from console as follows
 
 	phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
 
-	The out put of above command will be something like this
+	The output of above command will be something like this
 	node_modules
 	|_fiddles
 	  |_<website1>
@@ -34,9 +34,6 @@ After installing the package you can use it from console as follows
 	  	  |_demo.details
 	  	  |_url.txt
 
-
-```
- 
 ### Preparing the csv file holding the jsfiddle.net links
 	
 	A sample csv data is here
