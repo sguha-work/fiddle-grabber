@@ -21,8 +21,7 @@ phantomjs node_modules/fiddle-grabber.js <csv-file-name>.csv
 ```
 The output of above command will be something like this
 ```
-			node_modules
-			|_fiddles
+			fiddles
 			  |_<website>
 			  	|_<website>.html
 			  	|_files
