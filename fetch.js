@@ -14,10 +14,15 @@ page.onConsoleMessage = (function(msg) {
     console.log("");
 });
 
-// ignoring all console log of the site
+// ignoring all javascript error of the site
 page.onError = (function(msg) {
     console.log("Javascript error on page");
 }); 
+
+// ignoring all javascript alert of the page
+page.onAlert = function(msg) {
+  console.log("");
+}
  
 var createLocalFiles = (function(urlObject) {
     console.log("****** Start creating local files ******");
