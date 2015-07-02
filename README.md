@@ -33,6 +33,7 @@ The output of above command will be something like this
 			  	  |_url.txt
 ```			  	  
 #### Description of the created files and folders
+```
 fiddles - The root folder holding all the sub folders
 <website> - top most folder of each link crawled
 <website>.html - A complete ready to run html file holding all of the coding,If ajax call is there then may not work if not executed from any host
@@ -42,7 +43,7 @@ demo.js - The javascript coding of the fiddle
 demo.css - The styles of the fiddle
 demo.details - Holds title, description, external resources of the fiddle
 url.txt - The URL of the fiddle
-
+```
 ### Preparing the csv file holding the jsfiddle.net links
 	
 	A sample csv data is here
