@@ -89,12 +89,19 @@ var startRenderInterval = (function() {
     fs.makeDirectory(rootDirectoryName);
 })();
 
+var isValidFiddleLink = (function(url) {
+	if(url.indexOf("//jsfiddle.net/") == -1) {
+		return false;
+	}
+	return true;
+});
+
 // parse the csv to get the url array
 var getURLArrayFromCSV = (function(fileContent) {
     var fileContentArray = fileContent.split("\n");
     for (var index = 1; index < fileContentArray.length; index++) {
         var lineArray = fileContentArray[index].split(",");
-        if (typeof lineArray[0] != "undefined" && lineArray[0].trim().length != 0) {
+        if (typeof lineArray[0] != "undefined" && lineArray[0].trim().length != 0 && isValidFiddleLink(lineArray[0])) {
             var tempObject = {};
             tempObject.url = lineArray[0];
             if (typeof lineArray[1] != "undefined" && lineArray[1].trim().length != 0) {
