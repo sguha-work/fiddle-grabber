@@ -94,7 +94,7 @@ The script takes 15-20 seconds to crawl every link. And here is the output.
 			  :	  			  
 			  	  
 ```
-### Most prominant issue
+### Most prominent issue
 
 ```
  Still now the program can't crawl the libraries on which the jsfiddle is dependant.
