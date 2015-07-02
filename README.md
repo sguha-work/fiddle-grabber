@@ -62,12 +62,47 @@ http://jsfiddle.net/zxcd/kjlg/1/,
  will be the folder name. If the URL doesnot contain a valid link then the url will be ignored.
 
 ### Example
-    Follwoing example is shown based on a sample csv file which holds above 3 sample fiddle links.
+Follwoing example is shown based on a sample csv file which holds above 3 sample fiddle links.
 ```
 	phantomjs node_modules/fiddle-grabber.js test.csv	    
 ```
 When the program is running you may see a screen like following which will show the progress
 	![Image of Yaktocat](http://i.imgur.com/f9PzfJz.png)
+
+The script took 15-20 sec to crawl every link. And here is the output.
+
+```
+			fiddles
+			  |_untitled1
+			  	|_untitled1.html
+			  	|_files
+			  	  |_demo.html
+			  	  |_demo.js
+			  	  |_demo.css
+			  	  |_demo.details
+			  	  |_url.txt
+			  |_untitled2
+			  	|_untitled2.html
+			  	|_files
+			  	  |_demo.html
+			  	  |_demo.js
+			  	  |_demo.css
+			  	  |_demo.details
+			  	  |_url.txt
+			  :
+			  :
+			  :	  			  
+			  	  
+```
+### Most prominant issue
+
+```
+ Still now the program can't crawl the libraries on which the jsfiddle is dependant.
+ If you fiddle got dependencies on jquery for say then that info will not be crawled.
+ The standalone HTML file also will not hold the library info. 
+ If the libraries are added as external resources in the fiddle then that will be
+ crawled.
+```
 
 ##If any issue found feel free to drop a mail at sguha1988.life@gmail.com
 
