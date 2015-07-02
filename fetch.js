@@ -34,7 +34,7 @@ var createLocalFiles = (function(urlObject) {
             };
 
         });
-        page.onConsoleMessage = (function(msg) {}); // ignoring all console log of the site
+        page.onConsoleMessage = (function(msg) {return false;}); // ignoring all console log of the site
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title);
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title + "/" + "files");
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
@@ -48,6 +48,34 @@ var createLocalFiles = (function(urlObject) {
         }
         detailsContent += '...';
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.details", detailsContent, 'w');
+
+        //creating full page
+        var totalHTMLContent = '<!DOCTYPE HTML><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><meta http-equiv="edit-Type" edit="text/html; charset=utf-8" />';
+        
+        // adding the title
+        totalHTMLContent += '<title>'+value.options.title+'</title>';
+
+        //adding css
+        totalHTMLContent += "<style>"+value.css+"</style>";
+        // adding the external resources
+        for (var index in value.resources) {
+            if((value.resources[index].split(".").pop()).toLowerCase() == "js") {
+            	totalHTMLContent += '<script type="text/javascript" src="'+value.resources[index]+'"></script>';
+            } else {
+            	totalHTMLContent +='<link rel="stylesheet" type="text/css" href="'+value.resources[index]+'"></link>';
+            }
+        }
+        // closing header and starting the body
+        totalHTMLContent += "</head><body>";
+        //adding the html
+        totalHTMLContent += value.html;
+        //adding the javascript
+        totalHTMLContent += '<script type="text/javascript">'+value.js+'</script>';
+        //ending page
+        totalHTMLContent += '</body></html>';
+
+		fs.write(rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title +".html", totalHTMLContent, 'w');        
+
         console.log("****** File write done ******");
     }
 
@@ -62,7 +90,6 @@ var startRender = (function() {
 
     console.log("****** " + (counter + 1) + " Openning link " + fiddleFetch.url[counter].url + " *****");
     page.open(fiddleFetch.url[counter].url, function(status) {
-        console.log(counter);
         if (status == 'success') {
             createLocalFiles(fiddleFetch.url[counter]);
         } else {
@@ -77,7 +104,7 @@ var startRenderInterval = (function() {
     startRender();
     setInterval(function() {
         startRender();
-    }, 15000)
+    }, 20000)
 });
 
 // creating root folder
