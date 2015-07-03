@@ -31,7 +31,6 @@ var createLocalFiles = (function(urlObject) {
         var value = page.evaluate(function() {
             var html = $('#id_code_html').text();
             var js = $('#id_code_js').text();
-
             var css = $('#id_code_css').text();
             var resources = [];
             $(".filename").each(function() {
@@ -40,6 +39,12 @@ var createLocalFiles = (function(urlObject) {
             var options = {};
             options.description = $('#id_description').text();
             options.title = $("#id_title").val();
+            options.scss = 0;
+            if($("#panel_css_choice").length && $("#panel_css_choice").val()) {
+                options.scss=1;
+            } else {
+                options.scss=0;
+            }
             return {
                 html: html,
                 js: js,
@@ -49,11 +54,15 @@ var createLocalFiles = (function(urlObject) {
             };
 
         });
+        var cssFileName = "demo.css";
+        if(typeof value.scss != "undefined" && value.scss) {
+            cssFileName = "demo.scss";
+        }
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title);
         fs.makeDirectory(rootDirectoryName + "/" + urlObject.title + "/" + "files");
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.js", value.js);
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.css", value.css);
+        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + cssFileName, value.css);
         fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "url.txt", urlObject.url);
 
         var detailsContent = "---\nname: " + value.options.title + "\ndescription: " + value.options.description + "\nresources: \n";
