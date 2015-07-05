@@ -5,7 +5,7 @@ fiddleFetch.url = [];
 fiddleFetch.rootDirectoryName = "fiddles";
 fiddleFetch.counter = -1;
 page = require('webpage').create();
-fiddleFetch.logFileName = fiddleFetch.rootDirectoryName + "log_"+(new Date()).getTime()+".json";
+fiddleFetch.logFileName = fiddleFetch.rootDirectoryName + "/" + "log_"+(new Date()).getTime()+".json";
 // ignoring all console log of the site
 page.onConsoleMessage = (function(msg) {
     console.log("");
@@ -96,6 +96,15 @@ var createLocalFiles = (function(urlObject) {
 
         fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title + ".html", totalHTMLContent, 'w');
 
+        // updating the log file
+        var logFileData = JSON.parse(fs.read(fiddleFetch.logFileName));
+        var logObject = {};
+        logObject.url = urlObject.url;
+        logObject.grabStatus = ((value.js.length)?1:0);
+        logObject.grabbedOn = (new Date()).getTime();
+        logFileData.push(logObject);;
+        fs.write(fiddleFetch.logFileName, JSON.stringify(logFileData, null, 4), "w");
+        
         console.log("****** File write done ******");
     }
 
@@ -117,12 +126,19 @@ var startRender = (function() {
     });
 });
 
+var initiateLogFile = (function() {
+    var fs = require('fs');
+    fs.write(fiddleFetch.logFileName, "[]", "w+");
+});
 
 var startRenderInterval = (function() {
+    console.log("");
+    console.log("");
     console.log("Initializing the program");
     console.log("Local folder created");
     console.log("");
     console.log("");
+    initiateLogFile();
     setInterval(function() {
         startRender();
     }, 20000)
