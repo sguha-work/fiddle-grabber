@@ -1,14 +1,11 @@
-// to run this code use phantomjs fetchData.js
-var counter = -1;
-var url = [];
+// to run this code use phantomjs fiddle-grabber.js
 var page;
-var rootDirectoryName = "fiddles";
-var newFiddleObjects = [];
 var fiddleFetch = {};
 fiddleFetch.url = [];
-
+fiddleFetch.rootDirectoryName = "fiddles";
+fiddleFetch.counter = -1;
 page = require('webpage').create();
-
+fiddleFetch.logFileName = fiddleFetch.rootDirectoryName + "/" + "log_"+(new Date()).getTime()+".json";
 // ignoring all console log of the site
 page.onConsoleMessage = (function(msg) {
     console.log("");
@@ -58,19 +55,19 @@ var createLocalFiles = (function(urlObject) {
         if(typeof value.scss != "undefined" && value.scss) {
             cssFileName = "demo.scss";
         }
-        fs.makeDirectory(rootDirectoryName + "/" + urlObject.title);
-        fs.makeDirectory(rootDirectoryName + "/" + urlObject.title + "/" + "files");
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.js", value.js);
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + cssFileName, value.css);
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "url.txt", urlObject.url);
+        fs.makeDirectory(fiddleFetch.rootDirectoryName + "/" + urlObject.title);
+        fs.makeDirectory(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files");
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.html", value.html);
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.js", value.js);
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + cssFileName, value.css);
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "url.txt", urlObject.url);
 
         var detailsContent = "---\nname: " + value.options.title + "\ndescription: " + value.options.description + "\nresources: \n";
         for (var index in value.resources) {
             detailsContent += '  - ' + value.resources[index] + '\n';
         }
         detailsContent += '...';
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.details", detailsContent, 'w');
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + "files" + "/" + "demo.details", detailsContent, 'w');
 
         //creating full page
         var totalHTMLContent = '<!DOCTYPE HTML><html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8" /><meta http-equiv="edit-Type" edit="text/html; charset=utf-8" />';
@@ -97,32 +94,51 @@ var createLocalFiles = (function(urlObject) {
         //ending page
         totalHTMLContent += '</body></html>';
 
-        fs.write(rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title + ".html", totalHTMLContent, 'w');
+        fs.write(fiddleFetch.rootDirectoryName + "/" + urlObject.title + "/" + urlObject.title + ".html", totalHTMLContent, 'w');
 
+        // updating the log file
+        var logFileData = JSON.parse(fs.read(fiddleFetch.logFileName));
+        var logObject = {};
+        logObject.url = urlObject.url;
+        logObject.grabStatus = ((value.js.length)?1:0);
+        logObject.grabbedOn = (new Date()).getTime();
+        logFileData.push(logObject);;
+        fs.write(fiddleFetch.logFileName, JSON.stringify(logFileData, null, 4), "w");
+        
         console.log("****** File write done ******");
     }
 
 });
 
 var startRender = (function() {
-    counter += 1;
-    if (counter >= fiddleFetch.url.length) {
+    fiddleFetch.counter += 1;
+    if (fiddleFetch.counter >= fiddleFetch.url.length) {
         phantom.exit();
     }
-    console.log("****** " + (counter + 1) + " Openning link " + fiddleFetch.url[counter].url + " *****");
-    page.open(fiddleFetch.url[counter].url, function(status) {
+    console.log("****** " + (fiddleFetch.counter + 1) + " Openning link " + fiddleFetch.url[fiddleFetch.counter].url + " *****");
+    page.open(fiddleFetch.url[fiddleFetch.counter].url, function(status) {
         if (status == 'success') {
-            createLocalFiles(fiddleFetch.url[counter]);
+            createLocalFiles(fiddleFetch.url[fiddleFetch.counter]);
         } else {
-            counter -= 1;
+            fiddleFetch.counter -= 1;
             console.log("****** Link cannot be opened may be broken or slow internet connectivity, will retry now ******");
         }
     });
 });
 
+var initiateLogFile = (function() {
+    var fs = require('fs');
+    fs.write(fiddleFetch.logFileName, "[]", "w+");
+});
 
 var startRenderInterval = (function() {
-    startRender();
+    console.log("");
+    console.log("");
+    console.log("Initializing the program");
+    console.log("Local folder created");
+    console.log("");
+    console.log("");
+    initiateLogFile();
     setInterval(function() {
         startRender();
     }, 20000)
@@ -131,7 +147,7 @@ var startRenderInterval = (function() {
 // creating root folder
 (function() {
     var fs = require('fs');
-    fs.makeDirectory(rootDirectoryName);
+    fs.makeDirectory(fiddleFetch.rootDirectoryName);
 })();
 
 var isValidFiddleLink = (function(url) {
