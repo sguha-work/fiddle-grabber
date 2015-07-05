@@ -5,7 +5,7 @@ fiddleFetch.url = [];
 fiddleFetch.rootDirectoryName = "fiddles";
 fiddleFetch.counter = -1;
 page = require('webpage').create();
-
+fiddleFetch.logFileName = fiddleFetch.rootDirectoryName + "log_"+(new Date()).getTime()+".json";
 // ignoring all console log of the site
 page.onConsoleMessage = (function(msg) {
     console.log("");
