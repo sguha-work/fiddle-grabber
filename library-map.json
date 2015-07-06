@@ -6,19 +6,23 @@
     },
     {
         "value": "218",
-        "name": "Mootools 1.5.1 (nocompat)"
+        "name": "Mootools 1.5.1 (nocompat)",
+        "src": "http://fiddle.jshell.net/js/lib/mootools-core-1.5.1-full-nocompat-yc.js"
     },
     {
         "value": "216",
-        "name": "Mootools 1.5.1"
+        "name": "Mootools 1.5.1",
+        "src": "http://fiddle.jshell.net/js/lib/mootools-core-1.5.1-full-compat-yc.js"
     },
     {
         "value": "210",
-        "name": "Mootools 1.5.0 (nocompat)"
+        "name": "Mootools 1.5.0 (nocompat)",
+        "src": "http://fiddle.jshell.net/js/lib/mootools-1.5.0-nocompat.js"
     },
     {
         "value": "208",
-        "name": "Mootools 1.5.0"
+        "name": "Mootools 1.5.0",
+        "src": "http://fiddle.jshell.net/js/lib/mootools-1.5.0.js"
     },
     {
         "value": "96",
