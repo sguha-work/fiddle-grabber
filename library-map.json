@@ -206,47 +206,58 @@
     },
     {
         "value": "206",
-        "name": "Processing.js 1.4.7"
+        "name": "Processing.js 1.4.7",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.7/processing.min.js"
     },
     {
         "value": "135",
-        "name": "Processing.js 1.4.1"
+        "name": "Processing.js 1.4.1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js"
     },
     {
         "value": "81",
-        "name": "Processing.js 1.3.6"
+        "name": "Processing.js 1.3.6",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.3.6/processing.min.js"
     },
     {
         "value": "67",
-        "name": "Processing.js 1.2.3"
+        "name": "Processing.js 1.2.3",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/processing.js/1.2.3/processing.min.js"
     },
     {
         "value": "256",
-        "name": "ExtJS 5.1.0"
+        "name": "ExtJS 5.1.0",
+        "src": "http://cdn.sencha.com/ext/gpl/5.1.0/build/ext-all-debug.js"
     },
     {
         "value": "258",
-        "name": "ExtJS 5.0.0"
+        "name": "ExtJS 5.0.0",
+        "src": "http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all-debug.js"
     },
     {
         "value": "147",
-        "name": "ExtJS 4.2.0"
+        "name": "ExtJS 4.2.0",
+        "src": "http://cdn.sencha.com/ext/gpl/4.2.0/ext-all.js"
     },
     {
         "value": "80",
-        "name": "ExtJS 4.1.1"
+        "name": "ExtJS 4.1.1",
+        "src": "http://cdn.sencha.com/ext/gpl/4.1.1/ext-all.js"
     },
     {
         "value": "107",
-        "name": "ExtJS 4.1.0"
+        "name": "ExtJS 4.1.0",
+        "src": "http://fiddle.jshell.net/js/lib/extjs-4.1.0/ext-all.js"
     },
     {
         "value": "109",
-        "name": "ExtJS 3.4.0"
+        "name": "ExtJS 3.4.0",
+        "src": "http://cdn.sencha.com/ext/gpl/3.4.1.1/adapter/ext/ext-base.js"
     },
     {
         "value": "23",
-        "name": "ExtJS 3.1.0"
+        "name": "ExtJS 3.1.0",
+        "src": "http://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core-debug.js"
     },
     {
         "value": "76",
