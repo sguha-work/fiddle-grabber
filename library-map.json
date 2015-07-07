@@ -261,23 +261,28 @@
     },
     {
         "value": "76",
-        "name": "Raphael 2.1.0"
+        "name": "Raphael 2.1.0",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
     },
     {
         "value": "36",
-        "name": "Raphael 1.5.2 (min)"
+        "name": "Raphael 1.5.2 (min)",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/raphael/1.5.2/raphael-min.js"
     },
     {
         "value": "30",
-        "name": "Raphael 1.4"
+        "name": "Raphael 1.4",
+        "src": "http://fiddle.jshell.net/js/lib/raphael1.4.js"
     },
     {
         "value": "136",
-        "name": "RightJS 2.3.1"
+        "name": "RightJS 2.3.1",
+        "src": "http://cdn.rightjs.org/right-2.3.1.js"
     },
     {
         "value": "45",
-        "name": "RightJS 2.1.1"
+        "name": "RightJS 2.1.1",
+        "src": "http://fiddle.jshell.net/js/lib/right.js"
     },
     {
         "value": "82",
