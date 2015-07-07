@@ -171,31 +171,38 @@
     },
     {
         "value": "87",
-        "name": "Dojo (nightly)"
+        "name": "Dojo (nightly)",
+        "src": "http://archive.dojotoolkit.org/nightly/dojotoolkit/dojo/selector/acme.js"
     },
     {
         "value": "240",
-        "name": "Dojo 1.10.4"
+        "name": "Dojo 1.10.4",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
     },
     {
         "value": "242",
-        "name": "Dojo 1.9.7"
+        "name": "Dojo 1.9.7",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.9.7/dojo/dojo.js"
     },
     {
         "value": "244",
-        "name": "Dojo 1.8.10"
+        "name": "Dojo 1.8.10",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.8.10/dojo/dojo.js"
     },
     {
         "value": "246",
-        "name": "Dojo 1.7.8"
+        "name": "Dojo 1.7.8",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.7.8/dojo/dojo.js"
     },
     {
         "value": "196",
-        "name": "Dojo 1.6.2"
+        "name": "Dojo 1.6.2",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.6.2/dojo/dojo.js"
     },
     {
         "value": "194",
-        "name": "Dojo 1.5.3"
+        "name": "Dojo 1.5.3",
+        "src": "http://ajax.googleapis.com/ajax/libs/dojo/1.5.3/dojo/dojo.js"
     },
     {
         "value": "206",
