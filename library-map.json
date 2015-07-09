@@ -286,119 +286,148 @@
     },
     {
         "value": "82",
-        "name": "Three.js r54"
+        "name": "Three.js r54",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/three.js/r54/three.min.js"
     },
     {
         "value": "90",
-        "name": "Zepto 1.0rc1"
+        "name": "Zepto 1.0rc1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js"
     },
     {
         "value": "115",
-        "name": "Enyo (nightly)"
+        "name": "Enyo (nightly)",
+        "src": ""
     },
     {
         "value": "238",
-        "name": "Enyo 2.5.1"
+        "name": "Enyo 2.5.1",
+        "src": ""
     },
     {
         "value": "214",
-        "name": "Enyo 2.4.0"
+        "name": "Enyo 2.4.0",
+        "src": ""
     },
     {
         "value": "145",
-        "name": "Enyo 2.2.0"
+        "name": "Enyo 2.2.0",
+        "src": ""
     },
     {
         "value": "121",
-        "name": "Enyo 2.1"
+        "name": "Enyo 2.1",
+        "src": ""
     },
     {
         "value": "116",
-        "name": "Enyo 2.0.1"
+        "name": "Enyo 2.0.1",
+        "src": ""
     },
     {
         "value": "99",
-        "name": "Shipyard (nightly)"
+        "name": "Shipyard (nightly)",
+        "src": "http://static.seanmonstar.com/shipyard/shipyard-nightly.js"
     },
     {
         "value": "105",
-        "name": "Shipyard 0.2"
+        "name": "Shipyard 0.2",
+        "src": "http://static.seanmonstar.com/shipyard/shipyard-all-v0.2.0.js"
     },
     {
         "value": "172",
-        "name": "Knockout.js 3.0.0"
+        "name": "Knockout.js 3.0.0",
+        "src": "http://knockoutjs.com/downloads/knockout-3.0.0.js"
     },
     {
         "value": "163",
-        "name": "Knockout.js 2.3.0"
+        "name": "Knockout.js 2.3.0",
+        "src": "http://knockoutjs.com/downloads/knockout-2.3.0.js"
     },
     {
         "value": "122",
-        "name": "Knockout.js 2.2.1"
+        "name": "Knockout.js 2.2.1",
+        "src": "http://knockoutjs.com/downloads/knockout-2.2.1.js"
     },
     {
         "value": "117",
-        "name": "Knockout.js 2.1.0"
+        "name": "Knockout.js 2.1.0",
+        "src": "http://knockoutjs.com/downloads/knockout-2.1.0.js"
     },
     {
         "value": "104",
-        "name": "Knockout.js 2.0.0"
+        "name": "Knockout.js 2.0.0",
+        "src": "http://knockoutjs.com/downloads/knockout-2.0.0.js"
     },
     {
         "value": "106",
-        "name": "The X Toolkit edge"
+        "name": "The X Toolkit edge",
+        "src": "http://get.goxtk.com/xtk_edge.js"
     },
     {
         "value": "180",
-        "name": "AngularJS 1.2.1"
+        "name": "AngularJS 1.2.1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"
     },
     {
         "value": "137",
-        "name": "AngularJS 1.1.1"
+        "name": "AngularJS 1.1.1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.1/angular.js"
     },
     {
         "value": "190",
-        "name": "Ember 1.3.1"
+        "name": "Ember 1.3.1",
+        "src": "http://http//builds.emberjs.com/tags/v1.3.1/ember.prod.js"
     },
     {
         "value": "160",
-        "name": "Underscore 1.4.4"
+        "name": "Underscore 1.4.4",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"
     },
     {
         "value": "133",
-        "name": "Underscore 1.4.3"
+        "name": "Underscore 1.4.3",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"
     },
     {
         "value": "111",
-        "name": "Underscore 1.3.3"
+        "name": "Underscore 1.3.3",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.4/underscore-min.js"
     },
     {
         "value": "120",
-        "name": "Bonsai 0.4.1"
+        "name": "Bonsai 0.4.1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/bonsai/0.4.1/bonsai.min.js"
     },
     {
         "value": "139",
-        "name": "KineticJS 4.3.1"
+        "name": "KineticJS 4.3.1",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/kineticjs/4.3.1/kinetic.min.js"
     },
     {
         "value": "124",
-        "name": "KineticJS 4.0.5"
+        "name": "KineticJS 4.0.5",
+        "src": "http://www.kineticjs.com/download/v4.0.5/kinetic-v4.0.5.min.js"
     },
     {
         "value": "250",
-        "name": "FabricJS 1.5.0"
+        "name": "FabricJS 1.5.0",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.js"
     },
     {
         "value": "178",
-        "name": "FabricJS 1.4.0"
+        "name": "FabricJS 1.4.0",
+        "src": "http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.js"
     },
     {
         "value": "161",
-        "name": "FabricJS 1.2.0"
+        "name": "FabricJS 1.2.0",
+        "Src": "http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.2.0/fabric.js"
     },
     {
         "value": "125",
-        "name": "FabricJS 0.9"
+        "name": "FabricJS 0.9",
+        "src": "http://fabricjs.com/lib/fabric.js"
     },
     {
         "value": "126",
